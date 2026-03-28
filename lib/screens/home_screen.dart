@@ -27,16 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _loadData() async {
     final all = await DbHelper.instance.getAllExpenses();
     final today = await DbHelper.instance.getTodayExpenses();
-
     final now = DateTime.now();
 
-    // Hitung total minggu ini
     final weekExpenses = all.where((e) {
       final date = DateTime.parse(e.date);
       return date.isAfter(now.subtract(const Duration(days: 7)));
     }).toList();
 
-    // Hitung total bulan ini
     final monthExpenses = all.where((e) {
       final date = DateTime.parse(e.date);
       return date.month == now.month && date.year == now.year;
@@ -50,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // Format angka jadi Rp 10.000
   String _formatRupiah(int amount) {
     final str = amount.toString();
     final buffer = StringBuffer();
@@ -63,20 +59,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return 'Rp ${buffer.toString().split('').reversed.join()}';
   }
 
-  // Icon per kategori
   IconData _categoryIcon(String category) {
     switch (category) {
-      case 'Makan':       return Icons.restaurant;
-      case 'Transport':   return Icons.directions_car;
-      case 'Belanja':     return Icons.shopping_bag;
-      case 'Hiburan':     return Icons.movie;
-      case 'Game':        return Icons.videogame_asset;
-      case 'Tagihan':     return Icons.receipt;
-      default:            return Icons.more_horiz;
+      case 'Makan':      return Icons.restaurant;
+      case 'Transport':  return Icons.directions_car;
+      case 'Belanja':    return Icons.shopping_bag;
+      case 'Hiburan':    return Icons.movie;
+      case 'Game':       return Icons.videogame_asset;
+      case 'Tagihan':    return Icons.receipt;
+      default:           return Icons.more_horiz;
     }
   }
 
-  // Format tanggal
   String _formatDate(String isoDate) {
     final date = DateTime.parse(isoDate);
     final months = ['Jan','Feb','Mar','Apr','Mei','Jun',
@@ -253,7 +247,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             child: Row(
                               children: [
-                                // ICON KATEGORI
                                 Container(
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
@@ -268,7 +261,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                           : const Color(0xFF2D3748)),
                                 ),
                                 const SizedBox(width: 12),
-                                // INFO
                                 Expanded(
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -289,7 +281,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                                 ),
-                                // NOMINAL
                                 Text(
                                   _formatRupiah(e.amount),
                                   style: TextStyle(
@@ -304,6 +295,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
             ),
+
+            // COPYRIGHT ← ditambah di sini
+            Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 4),
+              child: Center(
+                child: Text(
+                  '© 2025 Saku Aman by Jems',
+                  style: TextStyle(
+                    color: subColor,
+                    fontSize: 11,
+                  ),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
@@ -346,7 +352,6 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: fabColor,
         child: const Icon(Icons.add, color: Colors.white),
       ),
-
     );
   }
 
