@@ -5,19 +5,20 @@ class NotificationService {
       FlutterLocalNotificationsPlugin();
 
   static Future<void> init() async {
-  const AndroidInitializationSettings android =
-      AndroidInitializationSettings('@mipmap/ic_launcher');
+    const AndroidInitializationSettings android =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    const DarwinInitializationSettings ios = DarwinInitializationSettings();
 
-  const InitializationSettings settings =
-      InitializationSettings(android: android);
+    const InitializationSettings settings =
+        InitializationSettings(android: android, iOS: ios); // fix ios
 
-  await _notifications.initialize(settings);
+    await _notifications.initialize(settings);
 
-  final androidPlugin = _notifications
-      .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
+    final androidPlugin = _notifications
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>();
 
-  await androidPlugin?.requestNotificationsPermission();
-}
+    await androidPlugin?.requestNotificationsPermission();
+  }
 
   static Future<void> showInsightNotification({
     required String title,
@@ -33,8 +34,13 @@ class NotificationService {
       icon: '@mipmap/ic_launcher',
     );
 
-    const NotificationDetails details =
-        NotificationDetails(android: androidDetails);
+    const DarwinNotificationDetails iosDetails =
+        DarwinNotificationDetails(); // ← tambah ini untuk iOS
+
+    const NotificationDetails details = NotificationDetails(
+      android: androidDetails,
+      iOS: iosDetails, // ← tambah ini untuk iOS
+    );
 
     await _notifications.show(
       DateTime.now().millisecondsSinceEpoch ~/ 1000,
