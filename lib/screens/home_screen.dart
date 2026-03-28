@@ -101,10 +101,14 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         title: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
-            Icon(Icons.account_balance_wallet, color: Colors.white, size: 22),
-            SizedBox(width: 8),
-            Text('Saku Aman', style: TextStyle(
+          children: [
+            Image.asset(
+              'assets/images/Logo_saku_aman_.png',
+              height: 32,
+              width: 32,
+            ),
+            const SizedBox(width: 8),
+            const Text('Saku Aman', style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontSize: 18,
