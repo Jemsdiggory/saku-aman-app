@@ -296,12 +296,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
             ),
 
-            // COPYRIGHT ← ditambah di sini
+            // COPYRIGHT 
             Padding(
               padding: const EdgeInsets.only(top: 8, bottom: 4),
               child: Center(
                 child: Text(
-                  '© 2025 Saku Aman by Jems',
+                  '© 2026 Saku Aman by Jems',
                   style: TextStyle(
                     color: subColor,
                     fontSize: 11,
