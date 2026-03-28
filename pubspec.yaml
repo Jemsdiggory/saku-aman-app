@@ -96,5 +96,5 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/Logo_saku_aman_.png"
+  image_path: "assets/images/logo_saku_aman.png"
   min_sdk_android: 21
