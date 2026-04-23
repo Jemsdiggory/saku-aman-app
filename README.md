@@ -1,92 +1,91 @@
 # 💰 Saku Aman App
-
-> Aplikasi pencatatan pengeluaran pribadi yang simpel, cerdas, dan personal — dibuat karena frustrasi sama aplikasi keuangan yang terlalu ribet.
-
----
-
-## 🧠 Latar Belakang
-
-Sebelumnya aku nyatat pengeluaran manual di **Notes HP** — simpel, tapi gak ada visualisasi, gak ada insight, dan gak ada yang ngingetin kalau udah mulai boros.
-
-Aplikasi keuangan yang ada di pasaran kebanyakan **terlalu kompleks** dan fiturnya overwhelming buat kebutuhan sehari-hari. Yang aku butuhin cuma satu hal: **tau kemana uangku pergi**, dengan tampilan yang bersih dan mudah dimengerti.
-
-Jadi aku bikin sendiri.
+> A simple, smart, and personal expense tracker — built out of frustration with overly complicated finance apps.
 
 ---
 
-## 🎯 Tujuan Aplikasi
+## 🧠 Background
 
-- Mencatat pengeluaran harian dengan cepat (under 10 detik)
-- Memvisualisasikan pola pengeluaran per kategori
-- Mendeteksi kebiasaan boros secara otomatis — termasuk pengeluaran game yang berlebihan 🎮
-- Memberikan insight yang actionable, bukan sekadar angka
+I used to track my expenses manually in my **phone's Notes app** — simple, but no visualizations, no insights, and nothing to warn me when I was starting to overspend.
+
+Most finance apps on the market are **way too complex** and overwhelming for everyday needs. All I needed was one thing: **knowing where my money goes**, with a clean and easy-to-understand interface.
+
+So I built it myself.
 
 ---
 
-## ✨ Fitur Utama
+## 🎯 App Goals
 
-### 📥 Input Pengeluaran
-Tambah transaksi dengan nominal, kategori, dan catatan opsional. Desain form yang clean dan cepat diisi.
+- Log daily expenses quickly (under 10 seconds)
+- Visualize spending patterns by category
+- Automatically detect overspending habits — including excessive gaming expenses 🎮
+- Provide actionable insights, not just raw numbers
+
+---
+
+## ✨ Key Features
+
+### 📥 Expense Input
+Add transactions with amount, category, and an optional note. Clean form design that's fast to fill out.
 
 ### 🏠 Home Screen
-Tampilan total pengeluaran hari ini, minggu ini, dan bulan ini. List transaksi terakhir dengan swipe-to-delete.
+View today's, this week's, and this month's total spending. Recent transaction list with swipe-to-delete.
 
-### 📊 Statistik
-- Pie chart pengeluaran per kategori
-- Breakdown dengan progress bar visual
-- Filter by hari ini / minggu ini / bulan ini
+### 📊 Statistics
+- Pie chart of spending by category
+- Breakdown with visual progress bars
+- Filter by today / this week / this month
 
 ### 🧠 Insight System *(Core Feature)*
-Sistem deteksi otomatis yang menganalisis pola pengeluaran dan memberikan peringatan, antara lain:
+An automatic detection system that analyzes spending patterns and triggers warnings, including:
 
-| Insight | Kondisi |
+| Insight | Condition |
 |---|---|
-| ⚠️ Transaksi Sering Banget | Lebih dari 5x transaksi dalam sehari |
-| 📈 Pengeluaran Naik | Minggu ini lebih boros >20% dari minggu lalu |
-| 📉 Pengeluaran Turun | Minggu ini lebih hemat >20% dari minggu lalu |
-| 🏷️ Kategori Terboros | Satu kategori >50% dari total pengeluaran |
-| 🎮 Game Addict Detected | Pengeluaran game >30% dari total, atau >3x transaksi game |
-| 📅 Hari Paling Boros | Deteksi hari dengan pengeluaran tertinggi |
-| ✅ Keuangan Aman | Semua kondisi terkontrol |
+| ⚠️ Too Many Transactions | More than 5 transactions in a single day |
+| 📈 Spending Increased | This week's spending is >20% higher than last week |
+| 📉 Spending Decreased | This week's spending is >20% lower than last week |
+| 🏷️ Top Spending Category | One category accounts for >50% of total spending |
+| 🎮 Game Addict Detected | Gaming expenses >30% of total, or >3 gaming transactions |
+| 📅 Most Expensive Day | Detects the day with the highest spending |
+| ✅ Finances Under Control | All conditions are within normal range |
 
-### 🔔 Notifikasi
-Insight warning dikirim langsung ke notifikasi HP secara otomatis.
+### 🔔 Notifications
+Insight warnings are automatically pushed as notifications to your phone.
 
 ### 🌙 Dark / Light Mode
-Mendukung auto-detect mode dari sistem device, plus bisa switch manual dari dalam app.
+Supports auto-detection from system settings, plus manual toggle from within the app.
 
 ---
 
 ## 🧱 Tech Stack
 
-| Teknologi | Kegunaan |
+| Technology | Purpose |
 |---|---|
-| **Flutter** | Framework utama cross-platform (Android & iOS) |
-| **Dart** | Bahasa pemrograman |
-| **SQLite** (`sqflite`) | Database lokal offline — semua data tersimpan di device |
-| **fl_chart** | Visualisasi data: pie chart & progress bar |
-| **flutter_local_notifications** | Push notification insight ke HP |
-| **path** | Helper untuk lokasi penyimpanan database |
+| **Flutter** | Main cross-platform framework (Android & iOS) |
+| **Dart** | Programming language |
+| **SQLite** (`sqflite`) | Local offline database — all data stored on device |
+| **fl_chart** | Data visualization: pie charts & progress bars |
+| **flutter_local_notifications** | Push insight notifications to phone |
+| **path** | Helper for database storage location |
 
 ---
 
-## 🚀 Cara Menjalankan
+## 🚀 How to Run
 
 ### Prerequisites
 - Flutter SDK >= 3.0.0
-- Android Studio / Xcode (untuk emulator)
+- Android Studio / Xcode (for emulator)
 
 ### Steps
 
 ```bash
-# Clone repo
+# Clone the repo
 git clone https://github.com/Jemsdiggory/saku-aman-app.git
 cd saku-aman-app
 
 # Install dependencies
 flutter pub get
 
-# Jalankan app
+# Run the app
 flutter run
 ```
 
@@ -96,7 +95,7 @@ flutter run
 flutter build apk --debug
 ```
 
-File APK tersedia di: `build/app/outputs/flutter-apk/app-debug.apk`
+APK file located at: `build/app/outputs/flutter-apk/app-debug.apk`
 
 ### Build iOS (Mac only)
 
@@ -109,12 +108,11 @@ flutter build ios
 
 ---
 
-
 ## 👤 Developer
 
-**Jems** — dibuat sebagai project portfolio sekaligus solusi masalah pribadi.
+**Jems** — built as a portfolio project and a personal solution.
 
-> *"Daripada nunggu aplikasi yang sempurna, mending bikin sendiri yang pas buat kebutuhan sendiri."*
+> *"Rather than waiting for the perfect app, I'd rather build my own that fits my needs."*
 
 ---
 
